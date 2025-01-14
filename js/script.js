@@ -76,12 +76,6 @@ function getScore(name){
   return score.getHTML();
 }
 
-//get gamemode
-function getMode(){
-  const mode = document.querySelector(".gamemode");
-  console.log(mode.getHTML());
-}
-
 // finally we can play..
 function play(choice){
   const player = choice || getInput();

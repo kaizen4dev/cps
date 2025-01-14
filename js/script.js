@@ -20,3 +20,20 @@ function bot(){
     return "dia";
   };
 };
+
+// let player manualy write chosen item
+function getInput() {
+  const input = prompt("Choose: cobble, paper, or shears").toLowerCase();
+  if(input == "cobble" 
+    || input == "paper" 
+    || input ==  "shears"
+    || input == "dia"){
+    // updateLogs(`You manualy chose ${input}.`);
+    return input;
+  } else {
+    alert("Invalid input.")
+    return manualy();
+  };
+}
+
+

@@ -69,3 +69,9 @@ function getWinner(nameOne, nameTwo){
 
   return winner;
 }
+
+// get current score
+function getScore(name){
+  const score = document.querySelector(`.score .${name}`);
+  return score.getHTML();
+}

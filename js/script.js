@@ -75,3 +75,24 @@ function getScore(name){
   const score = document.querySelector(`.score .${name}`);
   return score.getHTML();
 }
+
+// finally we can play..
+function play(choice){
+  const player = choice || getInput();
+  const zombie = bot();
+
+  const winner = getWinner(player, zombie);
+
+  if(winner == "Tie"){
+    updateLogs("\n");
+    updateLogs("Tie!");
+  } else if(winner == player){
+    updateLogs("\n");
+    updateLogs(`Zombie chose ${zombie}. You won!`)
+    updateScore("player")
+  } else {
+    updateLogs("\n");
+    updateLogs(`Zombie chose ${zombie}. You lost.`)
+    updateScore("zombie")
+  }
+}

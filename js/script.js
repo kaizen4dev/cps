@@ -84,14 +84,11 @@ function play(choice){
   const winner = getWinner(player, zombie);
 
   if(winner == "Tie"){
-    updateLogs("\n");
     updateLogs("Tie!");
   } else if(winner == player){
-    updateLogs("\n");
     updateLogs(`Zombie chose ${zombie}. You won!`)
     updateScore("player")
   } else {
-    updateLogs("\n");
     updateLogs(`Zombie chose ${zombie}. You lost.`)
     updateScore("zombie")
   }

@@ -42,3 +42,30 @@ function updateScore(name){
   score.textContent = Number(score.getHTML()) + 1;
   return;
 }
+
+// get Winner
+function getWinner(nameOne, nameTwo){
+
+  let winner;
+
+  if(nameOne == nameTwo){
+    return "Tie";
+  };
+
+  switch(nameOne){
+    case "dia":
+      winner = nameOne;
+      break;
+    case "cobble":
+      winner = nameTwo == "shears" ? nameOne : nameTwo;
+      break;
+    case "paper":
+      winner = nameTwo == "cobble" ? nameOne : nameTwo;
+      break;
+    case "shears":
+      winner = nameTwo == "paper" ? nameOne : nameTwo;
+      break;
+  };
+
+  return winner;
+}

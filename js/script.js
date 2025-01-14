@@ -39,10 +39,6 @@ function getInput() {
 // updates score for passed player
 function updateScore(name){
   const score = document.querySelector(`.score .${name}`);
-  const newScore = document.createElement("span");
-
-  newScore.textContent = Number(score.getHTML()) + 1;
-  newScore.classList.add(name);
-
-  score.replaceWith(newScore);
+  score.textContent = Number(score.getHTML()) + 1;
+  return;
 }

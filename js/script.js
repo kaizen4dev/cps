@@ -32,7 +32,7 @@ function getInput() {
     return input;
   } else {
     alert("Invalid input.")
-    return manualy();
+    return getInput();
   };
 }
 

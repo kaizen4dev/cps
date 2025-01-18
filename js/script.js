@@ -9,7 +9,7 @@ function updateLogs(msg){
 
 // let zombie choose an item
 function bot(){
-  const number = Math.random() * 100;
+  const number = Math.random() * 100 + 1;
   if(number < 34){
     return "cobble";
   } else if(number < 67) {

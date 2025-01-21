@@ -76,6 +76,26 @@ function getScore(name){
   return score.getHTML();
 }
 
+function resetScore(){
+  document.querySelector(".score .player").textContent = "";
+  document.querySelector(".score .zombie").textContent = "";
+  updateLogs("Score is reseted.")
+}
+
+function getGamemode(){
+  return document.querySelector(".gamemode").textContent;
+}
+
+function updateGamemode(){
+  let gamemode = document.querySelector(".gamemode");
+  if(getGamemode() == "Infinity"){
+    gamemode.textContent = "Best of 5";
+  } else {
+    gamemode.textContent = "Infinity";
+  }
+  updateLogs(`Gamemode switched to "${gamemode.textContent}"`);
+}
+
 // finally we can play..
 function play(choice){
   const player = choice || getInput();
@@ -93,3 +113,5 @@ function play(choice){
     updateScore("zombie")
   }
 }
+
+

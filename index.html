@@ -9,25 +9,24 @@
   </head>
   <body>
     <h1 class="header">Cobble, Paper, Shears!</h1>
+    <h2 class="gamemode">Infinity</h2>
     <div class="score">
       <h3 class="sub-header">Score</h3>
       <p>You: <span class="player"></span></p>
       <p>Zombie: <span class="zombie"></span></p>
     </div>
-    <div class="gamemode">
-      <h3 class="sub-header">Gamemode</h3>
-      <button class="infinity">Infinity</button>
-      <button class="best-of5">Best of 5</button>
-      <p class="chosen">Current gamemode: <span class="gamemode">infinity</span></p>
-      
-    </div>
-    <div class="buttons">
+    <div class="play">
       <h3 class="sub-header">Play</h3>
       <button onclick="play('cobble');">Cobble</button>
       <button onclick="play('paper');">Paper</button>
       <button onclick="play('shears');">Shears</button>
       <button onclick="play();">Write manualy</button>
+    </div>
+    <div class="tweaks">
+      <h3 class="sub-header">Tweaks</h3>
+      <button onclick="updateGamemode();">Switch gamemode</button>
       <button onclick="updateLogs();">Test logs</button>
+      <button onclick="resetScore();">Reset score</button>
     </div>
     <div class="logs">
       <h3 class="sub-header">Logs</h3>

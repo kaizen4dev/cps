@@ -97,6 +97,20 @@ function updateGamemode(){
   updateLogs(`Gamemode switched to "${gamemode.textContent}"`);
 }
 
+function updateGame(){
+  gamemode = getGamemode();
+  playerScore = getScore("player");
+  zombieScore = getScore("zombie");
+
+  if(gamemode == "Best of 5" && (playerScore == 3 || zombieScore == 3)){
+    resetScore();
+    updateLogs("------------------------------------");
+    updateLogs(`Zombie's score: ${zombieScore}`);
+    updateLogs(`Your score: ${playerScore}`);
+    updateLogs("-----------Game over!-----------");
+  }
+}
+
 // finally we can play..
 function play(choice){
   const player = choice || getInput();
@@ -113,6 +127,5 @@ function play(choice){
     updateLogs(`Zombie chose ${zombie}. You lost.`)
     updateScore("zombie")
   }
+  updateGame();
 }
-
-

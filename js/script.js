@@ -90,6 +90,8 @@ function updateGamemode(){
   resetScore();
   let gamemode = document.querySelector(".gamemode");
   if(getGamemode() == "Infinity"){
+    gamemode.textContent = "Best of 3";
+  } else if(getGamemode() == "Best of 3"){
     gamemode.textContent = "Best of 5";
   } else {
     gamemode.textContent = "Infinity";
@@ -106,6 +108,8 @@ function updateGame(){
 
   if(gamemode == "Best of 5"){
     winningScore = 3;
+  } else if(gamemode == "Best of 3"){
+    winningScore = 2;
   } else return;
 
   if(playerScore == winningScore || zombieScore == winningScore){

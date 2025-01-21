@@ -98,11 +98,17 @@ function updateGamemode(){
 }
 
 function updateGame(){
-  gamemode = getGamemode();
-  playerScore = getScore("player");
-  zombieScore = getScore("zombie");
 
-  if(gamemode == "Best of 5" && (playerScore == 3 || zombieScore == 3)){
+  let gamemode = getGamemode();
+  let playerScore = getScore("player");
+  let zombieScore = getScore("zombie");
+  let winningScore;
+
+  if(gamemode == "Best of 5"){
+    winningScore = 3;
+  } else return;
+
+  if(playerScore == winningScore || zombieScore == winningScore){
     resetScore();
     updateLogs("------------------------------------");
     updateLogs(`Zombie's score: ${zombieScore}`);

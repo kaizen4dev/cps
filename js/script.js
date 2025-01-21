@@ -89,6 +89,7 @@ function getGamemode(){
 function updateGamemode(){
   let gamemode = document.querySelector(".gamemode");
   if(getGamemode() == "Infinity"){
+    resetScore();
     gamemode.textContent = "Best of 5";
   } else {
     gamemode.textContent = "Infinity";

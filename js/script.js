@@ -22,7 +22,9 @@ function bot(){
 };
 
 // let player manualy write chosen item
-function getInput() {
+
+// old way
+function getInputOldWay() {
   const input = prompt("Choose: cobble, paper, or shears").toLowerCase();
   if(input == "cobble" 
     || input == "paper" 
@@ -32,8 +34,62 @@ function getInput() {
     return input;
   } else {
     alert("Invalid input.")
-    return getInput();
+    return getInputOldWay();
   };
+}
+
+// new way, by creating modal.
+function getInput() {
+  // create elements
+  const dialog = document.createElement("dialog");
+  const text = document.createElement("p");
+  const input = document.createElement("input");
+  const submit = document.createElement("button");
+  const cancel = document.createElement("button");
+  const status = document.createElement("span");
+
+  // assign text and styles to elements
+  text.innerHTML = "Choose cobble, paper, or shears. ";
+
+  submit.textContent = "Submit";
+  submit.style.backgroundColor = "blue";
+  submit.style.color = "white"
+
+  cancel.textContent = "Cancel";
+  cancel.style.backgroundColor = "gray";
+  cancel.style.color = "white";
+
+  // add event listeners to buttons
+  cancel.addEventListener('click', () => {
+    dialog.close();
+    dialog.remove();
+  })
+
+  submit.addEventListener('click', () => {
+    // check correctness of choice, if so, play it and close(remove) dialog.
+    // Otherwise show "invalid input" in the modal
+    if(input.value == "cobble" 
+      || input.value == "paper" 
+      || input.value ==  "shears"){
+      play(input.value); 
+      dialog.close();
+      dialog.remove();
+    } else {
+      status.textContent = "Invalid input";
+      status.style.color = "red";
+      text.append(status);
+    };
+  })
+
+  // append elements to dialog
+  dialog.append(text);
+  dialog.append(input);
+  dialog.append(cancel);
+  dialog.append(submit);
+
+  // append dialog to body and show it
+  document.querySelector("body").append(dialog);
+  dialog.showModal();
 }
 
 // updates score for passed player
@@ -123,7 +179,7 @@ function updateGame(){
 
 // finally we can play..
 function play(choice){
-  const player = choice || getInput();
+  const player = choice || getInputOldWay(); // old way used as fallback, in case where choice isn't passed to play() function.
   const zombie = bot();
 
   const winner = getWinner(player, zombie);

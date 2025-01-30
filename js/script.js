@@ -7,6 +7,15 @@ function updateLogs(msg){
   return;
 }
 
+// clear logs
+function clearLogs(){
+  const logs = document.querySelector(".logs .content");
+  while (logs.firstChild) {
+    logs.removeChild(logs.firstChild);
+  }
+  return;
+}
+
 // let zombie choose an item
 function bot(){
   const number = Math.random() * 100 + 1;
@@ -221,6 +230,9 @@ function listen(){
         break;
       case "reset-score":
         resetScore();
+        break;
+      case "clear-logs":
+        clearLogs();
         break;
     }
   })

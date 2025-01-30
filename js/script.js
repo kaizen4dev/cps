@@ -144,7 +144,7 @@ function getScore(name){
 function resetScore(){
   document.querySelector(".score .player").textContent = "";
   document.querySelector(".score .zombie").textContent = "";
-  updateLogs("Score is reseted.")
+  updateLogs("Score is reset.")
 }
 
 function getGamemode(){

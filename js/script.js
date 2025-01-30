@@ -141,10 +141,10 @@ function getScore(name){
   return score.getHTML();
 }
 
-function resetScore(){
+function resetScore(msg){
   document.querySelector(".score .player").textContent = "";
   document.querySelector(".score .zombie").textContent = "";
-  updateLogs("Score is reset.")
+  updateLogs(msg || "Score is reset.")
 }
 
 function getGamemode(){

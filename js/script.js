@@ -225,9 +225,6 @@ function listen(){
       case "switch-gamemode":
         updateGamemode();
         break;
-      case "test-logs":
-        updateLogs();
-        break;
       case "reset-score":
         resetScore();
         break;

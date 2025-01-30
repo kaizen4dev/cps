@@ -152,7 +152,6 @@ function getGamemode(){
 }
 
 function updateGamemode(){
-  resetScore();
   let gamemode = document.querySelector(".gamemode");
   if(getGamemode() == "Infinity"){
     gamemode.textContent = "Best of 3";
@@ -161,7 +160,7 @@ function updateGamemode(){
   } else {
     gamemode.textContent = "Infinity";
   }
-  updateLogs(`Gamemode switched to "${gamemode.textContent}"`);
+  resetScore(`Gamemode switched to "${gamemode.textContent}"`);
 }
 
 function updateGame(){

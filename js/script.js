@@ -195,3 +195,34 @@ function play(choice){
   }
   updateGame();
 }
+
+// listen for events
+function listen(){
+  // clicks
+  addEventListener('click', (e) => {
+    switch(e.target.className){
+      case "cobble":
+        play("cobble");
+        break;
+      case "paper":
+        play("paper");
+        break;
+      case "shears":
+        play("shears");
+        break;
+      case "write-manualy":
+        getInput();
+        break;
+      case "switch-gamemode":
+        updateGamemode();
+        break;
+      case "test-logs":
+        updateLogs();
+        break;
+      case "reset-score":
+        resetScore();
+        break;
+    }
+  })
+}
+listen();

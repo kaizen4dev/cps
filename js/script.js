@@ -177,7 +177,7 @@ function updateGame(){
   } else return;
 
   if(playerScore == winningScore || zombieScore == winningScore){
-    resetScore();
+    resetScore(" ");
     updateLogs("------------------------------------");
     updateLogs(`Zombie's score: ${zombieScore}`);
     updateLogs(`Your score: ${playerScore}`);
